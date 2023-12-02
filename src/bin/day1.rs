@@ -1,4 +1,3 @@
-use std::fmt::Write;
 fn main() {
     let part2 = true;
     let input = include_str!("../../day1/input").to_string();
@@ -50,11 +49,7 @@ fn main() {
                 b = nums.last()?.parse().ok()?;
             }
 
-            let mut number = String::with_capacity(4);
-            write!(&mut number, "{}", a).ok()?;
-            write!(&mut number, "{}", b).ok()?;
-
-            u16::from_str_radix(&*number, 10).ok()
+            Some((a * 10 + b) as u16)
         })
         .collect();
     let mut result: u32 = 0;
